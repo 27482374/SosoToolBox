@@ -1,58 +1,76 @@
 <!doctype html>
-<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f6f3"><title>SosoToolBox</title>
-<style>
-:root{--bg:#f6f6f3;--card:#fff;--soft:#eeeeeb;--text:#171717;--muted:#70706b;--line:#deded9;--accent:#171717;--on:#fff}
-[data-theme=dark]{--bg:#151515;--card:#1d1d1d;--soft:#252525;--text:#f3f3f0;--muted:#9b9b95;--line:#343431;--accent:#f3f3f0;--on:#171717}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 Inter,system-ui,-apple-system,"Segoe UI",sans-serif}button,input,textarea,select{font:inherit}button{cursor:pointer}
-.wrap{width:min(1080px,calc(100% - 32px));margin:auto}header{height:70px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}.brand{display:flex;gap:10px;align-items:center;color:var(--text);text-decoration:none;font-weight:750}.logo{width:34px;height:34px;border-radius:10px;background:var(--accent);color:var(--on);display:grid;place-items:center}.nav button{border:0;background:none;color:var(--muted);padding:9px 12px;border-radius:9px}.nav button.active,.nav button:hover{background:var(--soft);color:var(--text)}
-main{padding:60px 0 80px}.hero{max-width:700px;margin-bottom:42px}.eyebrow{text-transform:uppercase;letter-spacing:.06em;font-size:12px;font-weight:700;color:var(--muted);margin-bottom:10px}.hero h1{font-size:clamp(38px,6vw,58px);line-height:1;letter-spacing:-.05em;margin:0 0 16px}.hero p,.desc{color:var(--muted);font-size:16px;max-width:650px}.view{display:none}.view.active{display:block}.title{display:flex;justify-content:space-between;align-items:end;margin:0 0 14px}.title h2{font-size:18px;margin:0}.title span{font-size:12px;color:var(--muted)}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.card,.panel{background:var(--card);border:1px solid var(--line);border-radius:15px}.card{padding:20px;min-height:170px}.card:hover{border-color:#bdbdb8}.ico{width:38px;height:38px;background:var(--soft);border-radius:10px;display:grid;place-items:center;margin-bottom:18px;font-size:18px}.card h3{font-size:16px;margin:0 0 5px}.card p{font-size:13px;color:var(--muted);margin:0}.open{margin-top:16px;border:0;background:none;padding:0;color:var(--text);font-weight:650}
-.panel{padding:24px;max-width:820px}.panel h2{margin:0 0 6px;font-size:23px}.field{margin-top:15px}.field label{display:block;font-size:12px;font-weight:650;margin-bottom:7px;color:var(--muted)}input,textarea,select{width:100%;border:1px solid var(--line);background:var(--soft);color:var(--text);border-radius:10px;padding:11px 12px;outline:none}textarea{min-height:170px;resize:vertical}.row{display:flex;gap:9px}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.primary,.secondary{padding:10px 14px;border-radius:9px;border:1px solid var(--line);font-weight:650}.primary{background:var(--accent);color:var(--on);border-color:var(--accent)}.secondary{background:var(--card);color:var(--text)}.result{background:var(--soft);border-radius:10px;padding:13px;margin-top:14px;word-break:break-all}.small{font-size:12px;color:var(--muted);margin-top:8px}.drop{padding:28px;text-align:center;border:1px dashed var(--line);border-radius:12px;background:var(--soft)}.drop input{display:none}.drop label{display:inline-block;background:var(--accent);color:var(--on);padding:10px 14px;border-radius:9px;font-weight:650}.preview{max-width:100%;max-height:300px;display:block;margin:16px auto;border-radius:10px}.swatches{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:16px}.swatch{height:85px;border:1px solid var(--line);border-radius:9px;display:flex;align-items:end;padding:8px;font-size:11px;font-weight:700}
-.setting{display:flex;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}.setting:last-child{border:0}.setting p{color:var(--muted);font-size:13px;margin:3px 0}.seg{display:flex;background:var(--soft);padding:3px;border-radius:9px;height:max-content}.seg button{border:0;background:none;color:var(--muted);padding:7px 11px;border-radius:7px}.seg button.active{background:var(--card);color:var(--text)}
-footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-size:12px}
-@media(max-width:750px){.grid{grid-template-columns:1fr 1fr}.swatches{grid-template-columns:repeat(3,1fr)}}@media(max-width:520px){.wrap{width:calc(100% - 24px)}.grid{grid-template-columns:1fr}.row{flex-direction:column}.setting{flex-direction:column}}
-</style></head><body>
-<div class="wrap"><header><a class="brand" href="#" onclick="home();return false"><span class="logo">S</span><span>SosoToolBox</span></a><nav class="nav"><button id="nHome" class="active" onclick="home()">Accueil</button><button id="nSettings" onclick="settings()">Paramètres</button></nav></header>
-<main>
-<section id="home" class="view active"><div class="hero"><div class="eyebrow">Outils du quotidien</div><h1>Simple. Propre.<br>Utile.</h1><p>Une petite boîte à outils pensée pour aller droit au but. Pas de compte, pas de détour.</p></div>
-<div class="title"><h2>Outils</h2><span>6 outils</span></div><div class="grid">
-<div class="card"><div class="ico">↗</div><h3>Nettoyeur de liens</h3><p>Retire les paramètres de suivi inutiles d’une URL.</p><button class="open" onclick="tool('link')">Ouvrir →</button></div>
-<div class="card"><div class="ico">▧</div><h3>Convertisseur d’images</h3><p>Convertis PNG, JPG et WebP directement sur ton appareil.</p><button class="open" onclick="tool('convert')">Ouvrir →</button></div>
-<div class="card"><div class="ico">↗</div><h3>Redimensionneur d’image</h3><p>Change les dimensions d’une image rapidement.</p><button class="open" onclick="tool('resize')">Ouvrir →</button></div>
-<div class="card"><div class="ico">◉</div><h3>Palette de couleurs</h3><p>Génère une palette et copie facilement les codes HEX.</p><button class="open" onclick="tool('palette')">Ouvrir →</button></div>
-<div class="card"><div class="ico">T</div><h3>Générateur de texte</h3><p>Majuscules, minuscules, nettoyage et comptage.</p><button class="open" onclick="tool('text')">Ouvrir →</button></div>
-<div class="card"><div class="ico">⌁</div><h3>Générateur de mots de passe</h3><p>Crée un mot de passe aléatoire selon tes préférences.</p><button class="open" onclick="tool('pass')">Ouvrir →</button></div>
-</div></section>
-<section id="tools" class="view"><button class="secondary" onclick="home()">← Retour</button><div id="toolBox" class="panel" style="margin-top:14px"></div></section>
-<section id="settings" class="view"><div class="panel"><div class="eyebrow">Préférences</div><h2>Paramètres</h2><p class="desc">Les préférences sont enregistrées dans ce navigateur.</p><div class="setting"><div><b>Thème</b><p>Choisis l’apparence de SosoToolBox.</p></div><div class="seg"><button id="light" onclick="theme('light')">Clair</button><button id="dark" onclick="theme('dark')">Sombre</button></div></div><div class="setting"><div><b>Traitement local</b><p>Les images sont traitées dans ton navigateur, sans envoi vers un serveur.</p></div><span class="small">Local</span></div></div></section>
-</main><footer>SosoToolBox · fait pour être utilisé, pas pour faire joli.</footer></div>
-<script>
-var $=function(s){return document.querySelector(s)};
-function show(id){document.querySelectorAll('.view').forEach(function(v){v.classList.remove('active')});$(id).classList.add('active');$('#nHome').classList.toggle('active',id=='#home');$('#nSettings').classList.toggle('active',id=='#settings');window.scrollTo(0,0)}
-function home(){show('#home')}function settings(){show('#settings');buttons()}
-function theme(t){document.documentElement.dataset.theme=t;localStorage.setItem('soso-theme',t);buttons()}function buttons(){var t=document.documentElement.dataset.theme||'light';$('#light').classList.toggle('active',t=='light');$('#dark').classList.toggle('active',t=='dark')}
-function tool(type){show('#tools');var box=$('#toolBox');var title='',desc='',body='';
-if(type=='link'){title='Nettoyeur de liens';desc='Supprime les paramètres de suivi les plus courants.';body='<input id="url" type="url" placeholder="https://site.com/page?utm_source=test&id=42"><div class="actions"><button class="primary" onclick="clean()">Nettoyer</button></div><div id="out"></div>'}
-if(type=='convert'){title='Convertisseur d’images';desc='Tout se passe localement dans ton navigateur.';body='<div class="drop"><input id="cf" type="file" accept="image/png,image/jpeg,image/webp"><label for="cf">Choisir une image</label><div class="small">PNG · JPG · WebP</div></div><div id="co" style="display:none" class="field"><div class="row"><select id="ct"><option value="image/png">PNG</option><option value="image/jpeg">JPG</option><option value="image/webp">WebP</option></select><input id="cq" type="number" min="1" max="100" value="92" placeholder="Qualité"></div><div class="actions"><button class="primary" onclick="convert()">Convertir</button></div></div><div id="cr"></div>'}
-if(type=='resize'){title='Redimensionneur d’image';desc='Modifie les dimensions sans téléverser ton image.';body='<div class="drop"><input id="rf" type="file" accept="image/*"><label for="rf">Choisir une image</label></div><div id="ro" style="display:none" class="field"><div class="row"><input id="rw" type="number" placeholder="Largeur"><input id="rh" type="number" placeholder="Hauteur"></div><label class="small"><input id="ratio" type="checkbox" checked> Conserver les proportions</label><div class="actions"><button class="primary" onclick="resize()">Redimensionner</button></div></div><div id="rr"></div>'}
-if(type=='palette'){title='Palette de couleurs';desc='Pars d’une couleur et génère six nuances.';body='<div class="row"><input id="hex" value="#6D5DFB" maxlength="7"><input id="picker" type="color" value="#6D5DFB" style="max-width:60px;padding:5px"></div><div class="actions"><button class="primary" onclick="palette()">Générer</button></div><div id="sw" class="swatches"></div>'}
-if(type=='text'){title='Générateur de texte';desc='Transforme et nettoie ton texte en quelques clics.';body='<textarea id="tx" placeholder="Écris ou colle ton texte ici..."></textarea><div class="actions"><button class="primary" onclick="tx(1)">MAJUSCULES</button><button class="secondary" onclick="tx(2)">minuscules</button><button class="secondary" onclick="tx(3)">Nettoyer</button><button class="secondary" onclick="copy($('#tx').value)">Copier</button></div><div id="count" class="small">0 caractère</div>'}
-if(type=='pass'){title='Générateur de mots de passe';desc='Crée un mot de passe aléatoire sans le transmettre à un serveur.';body='<div class="row"><input id="pl" type="number" min="8" max="128" value="20"><select id="pm"><option value="all">Lettres + chiffres + symboles</option><option value="alnum">Lettres + chiffres</option><option value="letters">Lettres uniquement</option></select></div><div class="actions"><button class="primary" onclick="password()">Générer</button></div><div id="po" class="result">Clique sur Générer.</div>'}
-box.innerHTML='<div class="eyebrow">Outil</div><h2>'+title+'</h2><p class="desc">'+desc+'</p>'+body}
-function clean(){try{var u=new URL($('#url').value);var keep=['id','q','query','page','sort','filter','lang','category'];Array.from(u.searchParams.keys()).forEach(function(k){var x=k.toLowerCase();if(x.indexOf('utm_')==0||['fbclid','gclid','mc_cid','mc_eid','ref'].indexOf(x)>=0||keep.indexOf(x)<0)u.searchParams.delete(k)});$('#out').innerHTML='<div class="result">'+esc(u.toString())+'<div class="actions"><button class="secondary" onclick="copy('+JSON.stringify(u.toString())+')">Copier</button></div></div>'}catch(e){$('#out').innerHTML='<div class="result">URL invalide.</div>'}}
-var cimg=null,rimg=null;
-document.addEventListener('change',function(e){if(e.target.id=='cf'){var f=e.target.files[0];if(!f)return;cimg=new Image();cimg.onload=function(){$('#co').style.display='block';$('#cr').innerHTML='<img class="preview" src="'+cimg.src+'"><div class="small">'+cimg.width+' × '+cimg.height+' px</div>'};cimg.src=URL.createObjectURL(f)}
-if(e.target.id=='rf'){var f2=e.target.files[0];if(!f2)return;rimg=new Image();rimg.onload=function(){$('#ro').style.display='block';$('#rw').value=rimg.width;$('#rh').value=rimg.height};rimg.src=URL.createObjectURL(f2)}})
-function convert(){var can=document.createElement('canvas');can.width=cimg.width;can.height=cimg.height;can.getContext('2d').drawImage(cimg,0,0);var type=$('#ct').value;can.toBlob(function(b){download(b,'sosotoolbox.'+(type=='image/jpeg'?'jpg':type.split('/')[1]))},type,Number($('#cq').value)/100)}
-function resize(){var w=Number($('#rw').value),h=Number($('#rh').value);var can=document.createElement('canvas');can.width=w;can.height=h;can.getContext('2d').drawImage(rimg,0,0,w,h);can.toBlob(function(b){download(b,'sosotoolbox-resized.png')},'image/png')}
-document.addEventListener('input',function(e){if(e.target.id=='rw'&&$('#ratio')&&$('#ratio').checked&&rimg)$('#rh').value=Math.round(Number(e.target.value)*rimg.height/rimg.width);if(e.target.id=='tx')$('#count').textContent=e.target.value.length+' caractère'+(e.target.value.length>1?'s':'')})
-function palette(){var h=$('#hex').value.replace('#','');if(!/^[0-9a-f]{6}$/i.test(h))return;var n=parseInt(h,16),r=n>>16,g=n>>8&255,b=n&255;var a=[-40,-20,0,20,40,60].map(function(d){return rgb(r+d,g+d,b+d)});$('#sw').innerHTML=a.map(function(c){return '<button class="swatch" style="background:'+c+'" onclick="copy(\''+c+'\')">'+c+'</button>'}).join('')}
-document.addEventListener('input',function(e){if(e.target.id=='picker')$('#hex').value=e.target.value})
-function rgb(r,g,b){return '#'+[r,g,b].map(function(x){x=Math.max(0,Math.min(255,x));return x.toString(16).padStart(2,'0')}).join('').toUpperCase()}
-function tx(m){var e=$('#tx');if(m==1)e.value=e.value.toUpperCase();if(m==2)e.value=e.value.toLowerCase();if(m==3)e.value=e.value.replace(/[ \t]+/g,' ').replace(/\n{3,}/g,'\n\n').trim();e.dispatchEvent(new Event('input'))}
-function password(){var sets={all:'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789!@#$%^&*_-+=',alnum:'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789',letters:'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'};var chars=sets[$('#pm').value],a=new Uint32Array(Number($('#pl').value));crypto.getRandomValues(a);var p='';a.forEach(function(x){p+=chars[x%chars.length]});$('#po').innerHTML='<b>'+esc(p)+'</b><div class="actions"><button class="secondary" onclick="copy('+JSON.stringify(p)+')">Copier</button></div>'}
-function copy(v){if(navigator.clipboard)navigator.clipboard.writeText(v);var x=document.createElement('div');x.textContent='Copié';x.style='position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--accent);color:var(--on);padding:9px 13px;border-radius:9px;font-size:13px';document.body.appendChild(x);setTimeout(function(){x.remove()},1200)}
-function download(blob,name){var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;a.click()}
-function esc(s){return s.replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]})}
-theme(localStorage.getItem('soso-theme')||'light');
-</script></body></html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111111">
+  <title>SosoToolBox — V2</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" data-view="home"><span class="brand-mark">S</span><span>SosoToolBox</span></a>
+      <div class="side-label">OUTILS</div>
+      <nav class="tool-nav">
+        <button data-tool="links"><span>↗</span> Nettoyeur de liens</button>
+        <button data-tool="images"><span>▧</span> Images</button>
+        <button data-tool="palette"><span>◉</span> Couleurs</button>
+        <button data-tool="text"><span>T</span> Texte</button>
+        <button data-tool="password"><span>⌁</span> Mots de passe</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <button data-view="settings" class="settings-button">⚙ Paramètres</button>
+        <div class="version">SosoToolBox <b>V2</b></div>
+      </div>
+    </aside>
+    <main class="workspace">
+      <header class="topbar">
+        <div><span class="top-kicker">SosoToolBox</span><span id="page-title">Accueil</span></div>
+        <button id="theme-toggle" class="icon-button" title="Changer le thème">◐</button>
+      </header>
+      <section id="home-view" class="view active">
+        <div class="welcome">
+          <div class="welcome-copy">
+            <span class="eyebrow">V2 / OUTILS RAPIDES</span>
+            <h1>Tu choisis.<br><em>Tu utilises.</em></h1>
+            <p>Une collection d'outils simples, sans compte et sans interface inutile.</p>
+          </div>
+          <div class="welcome-mark">S</div>
+        </div>
+        <div class="section-heading">
+          <div><span class="eyebrow">DISPONIBLE</span><h2>Outils</h2></div>
+          <span class="tool-count">6 outils</span>
+        </div>
+        <div class="tool-grid">
+          <button class="tool-card featured" data-tool="links"><span class="card-icon">↗</span><strong>Nettoyeur de liens</strong><span>Retire les paramètres inutiles d'une URL.</span><small>Ouvrir →</small></button>
+          <button class="tool-card" data-tool="images"><span class="card-icon">▧</span><strong>Outils image</strong><span>Convertis ou redimensionne une image.</span><small>Ouvrir →</small></button>
+          <button class="tool-card" data-tool="palette"><span class="card-icon">◉</span><strong>Palette</strong><span>Crée une palette depuis une couleur.</span><small>Ouvrir →</small></button>
+          <button class="tool-card" data-tool="text"><span class="card-icon">T</span><strong>Texte</strong><span>Transforme, nettoie et compte ton texte.</span><small>Ouvrir →</small></button>
+          <button class="tool-card" data-tool="password"><span class="card-icon">⌁</span><strong>Mot de passe</strong><span>Génère un mot de passe aléatoire.</span><small>Ouvrir →</small></button>
+          <button class="tool-card" data-tool="resize"><span class="card-icon">↙</span><strong>Redimensionner</strong><span>Change rapidement les dimensions d'une image.</span><small>Ouvrir →</small></button>
+        </div>
+      </section>
+      <section id="tool-view" class="view">
+        <button class="back-button" data-view="home">← Accueil</button>
+        <div id="tool-content"></div>
+      </section>
+      <section id="settings-view" class="view">
+        <button class="back-button" data-view="home">← Accueil</button>
+        <div class="settings-card">
+          <span class="eyebrow">PRÉFÉRENCES</span><h1>Paramètres</h1>
+          <div class="setting-row">
+            <div><strong>Apparence</strong><p>Choisis le thème de l'interface.</p></div>
+            <div class="segmented"><button data-theme="light">Clair</button><button data-theme="dark">Sombre</button></div>
+          </div>
+          <div class="setting-row">
+            <div><strong>Traitement des images</strong><p>Les images sont traitées localement dans ton navigateur.</p></div>
+            <span class="status">LOCAL</span>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -78,3 +78,10 @@ textarea{min-height:190px;resize:vertical}
 .setting-row strong,.setting-row small{display:block}.setting-row small{color:var(--muted);font-size:12px;margin-top:3px}
 .setting-actions{display:flex;gap:7px}.local-badge{font-size:10px;font-weight:800;color:var(--muted);letter-spacing:.1em}
 @media(max-width:650px){.setting-row{align-items:flex-start;flex-direction:column}}
+
+
+.compact .tool-row{min-height:76px;padding-top:11px;padding-bottom:11px}
+.compact .tool-info small{display:none}
+.no-motion *,.no-motion *::before,.no-motion *::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}
+.setting-actions{flex-wrap:wrap}
+@media(max-width:650px){.setting-actions{width:100%}}

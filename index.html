@@ -4,73 +4,70 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#111111">
-  <title>SosoToolBox — V2</title>
+  <title>SosoToolBox</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div class="app-shell">
-    <aside class="sidebar">
-      <a class="brand" href="#" data-view="home"><span class="brand-mark">S</span><span>SosoToolBox</span></a>
-      <div class="side-label">OUTILS</div>
-      <nav class="tool-nav">
-        <button data-tool="links"><span>↗</span> Nettoyeur de liens</button>
-        <button data-tool="images"><span>▧</span> Images</button>
-        <button data-tool="palette"><span>◉</span> Couleurs</button>
-        <button data-tool="text"><span>T</span> Texte</button>
-        <button data-tool="password"><span>⌁</span> Mots de passe</button>
-      </nav>
-      <div class="sidebar-bottom">
-        <button data-view="settings" class="settings-button">⚙ Paramètres</button>
-        <div class="version">SosoToolBox <b>V2</b></div>
+  <main class="app">
+    <header class="header">
+      <button class="brand" data-view="home" aria-label="Accueil">
+        <span class="brand-dot"></span>
+        <span>SosoToolBox</span>
+      </button>
+      <div class="header-actions">
+        <span class="version">V2</span>
+        <button id="theme-toggle" class="theme-button" title="Changer le thème">◐</button>
       </div>
-    </aside>
-    <main class="workspace">
-      <header class="topbar">
-        <div><span class="top-kicker">SosoToolBox</span><span id="page-title">Accueil</span></div>
-        <button id="theme-toggle" class="icon-button" title="Changer le thème">◐</button>
-      </header>
-      <section id="home-view" class="view active">
-        <div class="welcome">
-          <div class="welcome-copy">
-            <span class="eyebrow">V2 / OUTILS RAPIDES</span>
-            <h1>Tu choisis.<br><em>Tu utilises.</em></h1>
-            <p>Une collection d'outils simples, sans compte et sans interface inutile.</p>
-          </div>
-          <div class="welcome-mark">S</div>
-        </div>
-        <div class="section-heading">
-          <div><span class="eyebrow">DISPONIBLE</span><h2>Outils</h2></div>
-          <span class="tool-count">6 outils</span>
-        </div>
-        <div class="tool-grid">
-          <button class="tool-card featured" data-tool="links"><span class="card-icon">↗</span><strong>Nettoyeur de liens</strong><span>Retire les paramètres inutiles d'une URL.</span><small>Ouvrir →</small></button>
-          <button class="tool-card" data-tool="images"><span class="card-icon">▧</span><strong>Outils image</strong><span>Convertis ou redimensionne une image.</span><small>Ouvrir →</small></button>
-          <button class="tool-card" data-tool="palette"><span class="card-icon">◉</span><strong>Palette</strong><span>Crée une palette depuis une couleur.</span><small>Ouvrir →</small></button>
-          <button class="tool-card" data-tool="text"><span class="card-icon">T</span><strong>Texte</strong><span>Transforme, nettoie et compte ton texte.</span><small>Ouvrir →</small></button>
-          <button class="tool-card" data-tool="password"><span class="card-icon">⌁</span><strong>Mot de passe</strong><span>Génère un mot de passe aléatoire.</span><small>Ouvrir →</small></button>
-          <button class="tool-card" data-tool="resize"><span class="card-icon">↙</span><strong>Redimensionner</strong><span>Change rapidement les dimensions d'une image.</span><small>Ouvrir →</small></button>
-        </div>
-      </section>
-      <section id="tool-view" class="view">
-        <button class="back-button" data-view="home">← Accueil</button>
-        <div id="tool-content"></div>
-      </section>
-      <section id="settings-view" class="view">
-        <button class="back-button" data-view="home">← Accueil</button>
-        <div class="settings-card">
-          <span class="eyebrow">PRÉFÉRENCES</span><h1>Paramètres</h1>
-          <div class="setting-row">
-            <div><strong>Apparence</strong><p>Choisis le thème de l'interface.</p></div>
-            <div class="segmented"><button data-theme="light">Clair</button><button data-theme="dark">Sombre</button></div>
-          </div>
-          <div class="setting-row">
-            <div><strong>Traitement des images</strong><p>Les images sont traitées localement dans ton navigateur.</p></div>
-            <span class="status">LOCAL</span>
-          </div>
-        </div>
-      </section>
-    </main>
-  </div>
+    </header>
+
+    <section id="home-view" class="view active">
+      <div class="intro">
+        <span class="eyebrow">OUTILS UTILITAIRES</span>
+        <h1>Tout ce dont tu as besoin.<br><em>Au même endroit.</em></h1>
+        <p>Des petits outils rapides, propres et sans compte.</p>
+      </div>
+
+      <div class="tool-list">
+        <button class="tool-row" data-tool="links">
+          <span class="tool-number">01</span><span class="tool-icon">↗</span>
+          <span class="tool-info"><strong>Nettoyeur de liens</strong><small>Nettoie une URL et retire le tracking inutile.</small></span>
+          <span class="tool-arrow">↗</span>
+        </button>
+        <button class="tool-row" data-tool="images">
+          <span class="tool-number">02</span><span class="tool-icon">▧</span>
+          <span class="tool-info"><strong>Convertisseur d’images</strong><small>Convertis PNG, JPG et WebP directement.</small></span>
+          <span class="tool-arrow">↗</span>
+        </button>
+        <button class="tool-row" data-tool="resize">
+          <span class="tool-number">03</span><span class="tool-icon">↙</span>
+          <span class="tool-info"><strong>Redimensionneur</strong><small>Change les dimensions d’une image en quelques secondes.</small></span>
+          <span class="tool-arrow">↗</span>
+        </button>
+        <button class="tool-row" data-tool="palette">
+          <span class="tool-number">04</span><span class="tool-icon">◉</span>
+          <span class="tool-info"><strong>Palette de couleurs</strong><small>Crée une palette harmonieuse depuis une couleur.</small></span>
+          <span class="tool-arrow">↗</span>
+        </button>
+        <button class="tool-row" data-tool="text">
+          <span class="tool-number">05</span><span class="tool-icon">T</span>
+          <span class="tool-info"><strong>Outils texte</strong><small>Transforme, nettoie, compte et copie ton texte.</small></span>
+          <span class="tool-arrow">↗</span>
+        </button>
+        <button class="tool-row" data-tool="password">
+          <span class="tool-number">06</span><span class="tool-icon">⌁</span>
+          <span class="tool-info"><strong>Générateur de mots de passe</strong><small>Génère un mot de passe aléatoire localement.</small></span>
+          <span class="tool-arrow">↗</span>
+        </button>
+      </div>
+
+      <footer><span>6 outils</span><span>Traitement local · Aucun compte</span></footer>
+    </section>
+
+    <section id="tool-view" class="view">
+      <button class="back-button" data-view="home">← Tous les outils</button>
+      <div id="tool-content"></div>
+    </section>
+  </main>
   <script src="js/app.js"></script>
 </body>
 </html>

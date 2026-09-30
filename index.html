@@ -3,17 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#111111">
+  <meta name="theme-color" content="#151515">
   <title>SosoToolBox</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=6">
 </head>
 <body>
   <main class="app">
     <header class="header">
-      <button class="brand" data-view="home" aria-label="Accueil">
-        <span class="brand-dot"></span>
-        <span>SosoToolBox</span>
-      </button>
+      <button class="brand" data-view="home" aria-label="Accueil"><span class="brand-dot"></span><span>SosoToolBox</span></button>
       <div class="header-actions">
         <button class="settings-button" data-view="settings" title="Paramètres">⚙</button>
         <button id="theme-toggle" class="theme-button" title="Changer le thème">◐</button>
@@ -22,39 +19,21 @@
 
     <section id="home-view" class="view active">
       <div class="tool-list">
-        <button class="tool-row" data-tool="links">
-          <span class="tool-number">01</span><span class="tool-icon">↗</span>
-          <span class="tool-info"><strong>Nettoyeur de liens</strong><small>Nettoie une URL et retire le tracking inutile.</small></span>
-          <span class="tool-arrow">↗</span>
-        </button>
-        <button class="tool-row" data-tool="images">
-          <span class="tool-number">02</span><span class="tool-icon">▧</span>
-          <span class="tool-info"><strong>Convertisseur d’images</strong><small>Convertis PNG, JPG et WebP directement.</small></span>
-          <span class="tool-arrow">↗</span>
-        </button>
-        <button class="tool-row" data-tool="resize">
-          <span class="tool-number">03</span><span class="tool-icon">↙</span>
-          <span class="tool-info"><strong>Redimensionneur</strong><small>Change les dimensions d’une image en quelques secondes.</small></span>
-          <span class="tool-arrow">↗</span>
-        </button>
-        <button class="tool-row" data-tool="palette">
-          <span class="tool-number">04</span><span class="tool-icon">◉</span>
-          <span class="tool-info"><strong>Palette de couleurs</strong><small>Crée une palette harmonieuse depuis une couleur.</small></span>
-          <span class="tool-arrow">↗</span>
-        </button>
-        <button class="tool-row" data-tool="text">
-          <span class="tool-number">05</span><span class="tool-icon">T</span>
-          <span class="tool-info"><strong>Outils texte</strong><small>Transforme, nettoie, compte et copie ton texte.</small></span>
-          <span class="tool-arrow">↗</span>
-        </button>
-        <button class="tool-row" data-tool="password">
-          <span class="tool-number">06</span><span class="tool-icon">⌁</span>
-          <span class="tool-info"><strong>Générateur de mots de passe</strong><small>Génère un mot de passe aléatoire localement.</small></span>
-          <span class="tool-arrow">↗</span>
-        </button>
+        <button class="tool-row" data-tool="links"><span class="tool-number">01</span><span class="tool-icon">↗</span><span class="tool-info"><strong>Nettoyeur de liens</strong><small>Retire le tracking inutile des URL.</small></span><span class="tool-arrow">↗</span></button>
+        <button class="tool-row" data-tool="images"><span class="tool-number">02</span><span class="tool-icon">▧</span><span class="tool-info"><strong>Convertisseur d’images</strong><small>Convertis PNG, JPG et WebP.</small></span><span class="tool-arrow">↗</span></button>
+        <button class="tool-row" data-tool="compress"><span class="tool-number">03</span><span class="tool-icon">↓</span><span class="tool-info"><strong>Compresseur d’image</strong><small>Réduis le poids d’une image avant de l’envoyer.</small></span><span class="tool-arrow">↗</span></button>
+        <button class="tool-row" data-tool="resize"><span class="tool-number">04</span><span class="tool-icon">↙</span><span class="tool-info"><strong>Redimensionneur</strong><small>Change rapidement les dimensions d’une image.</small></span><span class="tool-arrow">↗</span></button>
+        <button class="tool-row" data-tool="json"><span class="tool-number">05</span><span class="tool-icon">{ }</span><span class="tool-info"><strong>Formateur JSON</strong><small>Formate, minifie et valide du JSON.</small></span><span class="tool-arrow">↗</span></button>
+        <button class="tool-row" data-tool="base64"><span class="tool-number">06</span><span class="tool-icon">64</span><span class="tool-info"><strong>Encodeur Base64</strong><small>Encode ou décode rapidement du texte.</small></span><span class="tool-arrow">↗</span></button>
+        <button class="tool-row" data-tool="urlcodec"><span class="tool-number">07</span><span class="tool-icon">%</span><span class="tool-info"><strong>Encodeur URL</strong><small>Encode ou décode des paramètres URL.</small></span><span class="tool-arrow">↗</span></button>
+        <button class="tool-row" data-tool="timestamp"><span class="tool-number">08</span><span class="tool-icon">◷</span><span class="tool-info"><strong>Timestamp</strong><small>Convertis une date en Unix timestamp et inversement.</small></span><span class="tool-arrow">↗</span></button>
+        <button class="tool-row" data-tool="calculator"><span class="tool-number">09</span><span class="tool-icon">=</span><span class="tool-info"><strong>Calculatrice</strong><small>Effectue des calculs simples directement dans le navigateur.</small></span><span class="tool-arrow">↗</span></button>
+        <button class="tool-row" data-tool="hash"><span class="tool-number">10</span><span class="tool-icon">#</span><span class="tool-info"><strong>Générateur de hash</strong><small>SHA-256, SHA-384 ou SHA-512 côté navigateur.</small></span><span class="tool-arrow">↗</span></button>
+        <button class="tool-row" data-tool="palette"><span class="tool-number">11</span><span class="tool-icon">◉</span><span class="tool-info"><strong>Palette de couleurs</strong><small>Crée des nuances et copie les HEX.</small></span><span class="tool-arrow">↗</span></button>
+        <button class="tool-row" data-tool="text"><span class="tool-number">12</span><span class="tool-icon">T</span><span class="tool-info"><strong>Outils texte</strong><small>Transforme, nettoie, compte et copie.</small></span><span class="tool-arrow">↗</span></button>
+        <button class="tool-row" data-tool="password"><span class="tool-number">13</span><span class="tool-icon">⌁</span><span class="tool-info"><strong>Générateur de mots de passe</strong><small>Crée des mots de passe aléatoires localement.</small></span><span class="tool-arrow">↗</span></button>
       </div>
-
-      <footer><span>6 outils</span><span>Traitement local · Aucun compte</span></footer>
+      <footer><span>13 outils</span><span>Traitement local · Aucun compte</span></footer>
     </section>
 
     <section id="tool-view" class="view">
@@ -68,19 +47,28 @@
         <span class="eyebrow">PARAMÈTRES</span>
         <h2>Préférences</h2>
         <div class="setting-row">
-          <div><strong>Apparence</strong><small>Choisis le thème de SosoToolBox.</small></div>
-          <div class="setting-actions">
-            <button class="secondary" data-theme-choice="light">Clair</button>
-            <button class="secondary" data-theme-choice="dark">Sombre</button>
-          </div>
+          <div><strong>Thème</strong><small>Ton choix est sauvegardé sur cet appareil.</small></div>
+          <div class="setting-actions"><button class="secondary" data-theme-choice="light">Clair</button><button class="secondary" data-theme-choice="dark">Sombre</button><button class="secondary" data-theme-choice="system">Système</button></div>
         </div>
         <div class="setting-row">
-          <div><strong>Traitement</strong><small>Les fichiers sont traités directement dans ton navigateur.</small></div>
-          <span class="local-badge">LOCAL</span>
+          <div><strong>Densité</strong><small>Réduis l’espace entre les outils si tu veux en voir davantage.</small></div>
+          <div class="setting-actions"><button class="secondary" data-density="normal">Normale</button><button class="secondary" data-density="compact">Compacte</button></div>
+        </div>
+        <div class="setting-row">
+          <div><strong>Animations</strong><small>Désactive les transitions si tu préfères une interface instantanée.</small></div>
+          <div class="setting-actions"><button class="secondary" data-motion="on">Activées</button><button class="secondary" data-motion="off">Désactivées</button></div>
+        </div>
+        <div class="setting-row">
+          <div><strong>Dernier outil</strong><small>Rouvrir automatiquement le dernier outil utilisé au retour sur le site.</small></div>
+          <div class="setting-actions"><button class="secondary" data-last-tool="on">Activé</button><button class="secondary" data-last-tool="off">Désactivé</button></div>
+        </div>
+        <div class="setting-row">
+          <div><strong>Données locales</strong><small>Les préférences restent dans le stockage de ton navigateur.</small></div>
+          <button class="secondary" id="reset-settings">Réinitialiser</button>
         </div>
       </div>
     </section>
   </main>
-  <script src="js/app.js?v=3"></script>
+  <script src="js/app.js?v=6"></script>
 </body>
 </html>

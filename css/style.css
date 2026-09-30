@@ -70,3 +70,11 @@ textarea{min-height:190px;resize:vertical}
   .intro h1{font-size:42px}.tool-panel{padding:23px}.row{flex-direction:column}
   .swatches{grid-template-columns:repeat(3,1fr)}footer{gap:15px;flex-direction:column}
 }
+.settings-button{width:34px;height:34px;border:1px solid var(--line);border-radius:50%;background:var(--surface);color:var(--text);transition:.18s}
+.settings-button:hover{background:var(--surface-hover);transform:rotate(15deg)}
+.settings-panel{max-width:700px;margin:auto;background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:30px}
+.settings-panel h2{font-size:32px;letter-spacing:-.05em;margin:8px 0 22px}
+.setting-row{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 0;border-top:1px solid var(--line)}
+.setting-row strong,.setting-row small{display:block}.setting-row small{color:var(--muted);font-size:12px;margin-top:3px}
+.setting-actions{display:flex;gap:7px}.local-badge{font-size:10px;font-weight:800;color:var(--muted);letter-spacing:.1em}
+@media(max-width:650px){.setting-row{align-items:flex-start;flex-direction:column}}

@@ -82,8 +82,9 @@ function setTheme(theme){document.documentElement.dataset.theme=theme;localStora
 document.addEventListener("click",e=>{
  const tool=e.target.closest("[data-tool]");if(tool){openTool(tool.dataset.tool);return}
  const view=e.target.closest("[data-view]");if(view){e.preventDefault();showView(view.dataset.view);return}
+ const themeChoice=e.target.closest("[data-theme-choice]");if(themeChoice){setTheme(themeChoice.dataset.themeChoice);return}
  const copy=e.target.closest("[data-copy]");if(copy){copyText(copy.dataset.copy);return}
- const actions={clean-url:cleanUrl,convert-button:convertImage,resize-button:resizeImageFile,generate-palette:generatePalette,text-upper:()=>transformText("upper"),text-lower:()=>transformText("lower"),text-clean:()=>transformText("clean"),text-copy:()=>copyText($("#text-input").value),generate-password:generatePassword};
+ const actions={"clean-url":cleanUrl,"convert-button":convertImage,"resize-button":resizeImageFile,"generate-palette":generatePalette,"text-upper":()=>transformText("upper"),"text-lower":()=>transformText("lower"),"text-clean":()=>transformText("clean"),"text-copy":()=>copyText($("#text-input").value),"generate-password":generatePassword};
  if(actions[e.target.id])actions[e.target.id]();
 });
 document.addEventListener("change",e=>{

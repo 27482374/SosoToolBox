@@ -84,8 +84,19 @@ document.addEventListener("click",e=>{
  const view=e.target.closest("[data-view]");if(view){e.preventDefault();showView(view.dataset.view);return}
  const themeChoice=e.target.closest("[data-theme-choice]");if(themeChoice){setTheme(themeChoice.dataset.themeChoice);return}
  const copy=e.target.closest("[data-copy]");if(copy){copyText(copy.dataset.copy);return}
- const actions={"clean-url":cleanUrl,"convert-button":convertImage,"resize-button":resizeImageFile,"generate-palette":generatePalette,"text-upper":()=>transformText("upper"),"text-lower":()=>transformText("lower"),"text-clean":()=>transformText("clean"),"text-copy":()=>copyText($("#text-input").value),"generate-password":generatePassword};
- if(actions[e.target.id])actions[e.target.id]();
+ const actions={
+   "clean-url":cleanUrl,
+   "convert-button":convertImage,
+   "resize-button":resizeImageFile,
+   "generate-palette":generatePalette,
+   "text-upper":()=>transformText("upper"),
+   "text-lower":()=>transformText("lower"),
+   "text-clean":()=>transformText("clean"),
+   "text-copy":()=>copyText($("#text-input").value),
+   "generate-password":generatePassword
+ };
+ const action=e.target.closest("button")?.id;
+ if(action && actions[action]) actions[action]();
 });
 document.addEventListener("change",e=>{
  if(e.target.id==="convert-file")loadImage(e.target.files[0],image=>{currentImage=image;$("#convert-options").hidden=false;$("#convert-preview").innerHTML='<img class="preview" src="'+image.src+'"><div class="muted">'+image.width+" × "+image.height+" px</div>"});
